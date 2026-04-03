@@ -2,6 +2,7 @@
 
 🕵️‍♂️ Web Security & Traffic Interception
 Automatización con Mitmproxy y Análisis de Vulnerabilidades XSS
+------------------------------------------------------------------
 <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python">
 <img src="https://img.shields.io/badge/Mitmproxy-FF0000?style=for-the-badge&logo=linux&logoColor=white" alt="Mitmproxy">
 <img src="https://img.shields.io/badge/SQLMap-000000?style=for-the-badge&logo=kalilinux&logoColor=white" alt="SQLMap">
@@ -77,3 +78,4 @@ El Cross-Site Scripting (XSS) es una vulnerabilidad crítica que permite a los a
 
 Existen tres variantes principales de este ataque:
 
+Tipo de XSSDescripción y ComportamientoEjemplo de Vector🪞 ReflejadoEl script se refleja inmediatamente desde el servidor al navegador. No se almacena. Requiere interacción (clic en un enlace).Buscadores que devuelven el término de búsqueda en pantalla sin desinfectar.💾 AlmacenadoEl script se guarda en la base de datos del servidor. Afecta a cualquier usuario que visualice el contenido infectado.Cajas de comentarios, perfiles de foros o mensajes de soporte.🧩 Basado en DOMEl ataque ocurre íntegramente en el lado del cliente. El DOM manipula datos inseguros procesados por JavaScript.Actualizaciones de contenido basadas en el fragmento de la URL (#).⚠️ Consecuencias de los Ataques XSSLa ejecución de JavaScript no autorizado en el navegador de una víctima puede tener efectos devastadores:RiesgoImpacto🕵️ Robo de DatosExtracción de cookies de sesión, tokens de autenticación o datos personales en texto plano.🎭 Secuestro de SesiónSuplantación de identidad completa, permitiendo al atacante tomar control de la cuenta de la víctima.🎣 PhishingInyección de formularios falsos (ej. login superpuesto) para capturar credenciales directamente.🎨 Desfiguración (Defacement)Modificación del DOM para cambiar la apariencia del sitio, dañando la reputación corporativa.⚙️ Cómo Funciona XSSEl problema fundamental de XSS radica en la confianza ciega del servidor hacia el usuario. El flujo de un ataque se divide en tres fases:Identificación: El atacante escanea puntos de entrada (parámetros GET/POST, headers, cookies) buscando inputs que se reflejen en la respuesta sin sanitización.Inyección: Se diseña y envía un payload (generalmente código JavaScript envuelto en etiquetas <script>).Ejecución: El navegador de la víctima recibe la respuesta del servidor web, no distingue el código original del inyectado, y lo ejecuta automáticamente con los permisos de la sesión actual.
